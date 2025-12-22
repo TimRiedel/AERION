@@ -4,8 +4,14 @@
 defaults:
   - /base_config
   - model: flight_bert
-  - dataset: january
+  - dataset: single_day
   - _self_
+
+# --------------------------------------
+# Overrides
+# --------------------------------------
+trainer:
+  max_epochs: 50
 
 optimizer:
   _target_: torch.optim.Adam
@@ -15,9 +21,6 @@ scheduler:
   _target_: torch.optim.lr_scheduler.CosineAnnealingLR
   step_size: 20
   gamma: 0.7
-
-trainer:
-  max_epochs: 50
 
 dataset:
   dataloader:

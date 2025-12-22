@@ -4,8 +4,9 @@
 
 defaults:
   - trainer: default
+  - model: default
+  - dataset: default
   - _self_
-
 
 # --------------------------------------
 # General settings
@@ -38,6 +39,13 @@ callbacks:
   learning_rate_monitor:
     _target_: pytorch_lightning.callbacks.LearningRateMonitor
     logging_interval: "epoch"
+   
+# --------------------------------------
+# Optimizer
+# --------------------------------------
+optimizer:
+  _target_: torch.optim.AdamW
+  learning_rate: 0.0001
 
 # --------------------------------------
 # Weights and Biases
